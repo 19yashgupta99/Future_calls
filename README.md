@@ -1,28 +1,13 @@
-# OOPs_Assignment_3 & Testing Assignment
+# Future Calls and its Testing
 
-In this project I solved the problem which is :
+In this project I make User Management System in which I implement the CRUD 
 
-Create a User Management System.
-
-Application
---------------
-2 Types of Users:
+Types of Users:
 a) Customer
 b) Admins
 
 
-Acceptance Criteria (Demo) :
-1. Create a Main class under `org.knoldus.bootstarp` and perform following operator.
-
-a. Create two User [Customer and Admin]
-
-b. List all user
-
-c. Update UserName of Admin
-
-d. Delete Customer
-
-So, according to above problem I created  User management System which has following structure:-
+So, this User management System has following structure:-
 
 =>src
 
@@ -78,17 +63,10 @@ So, according to above problem I created  User management System which has follo
 
 where every scala class doing its job.
 
-For the Testing coverage I used the scoverage plugin
+*All the method of UserDatabase class implemented using Future to run them concurrent.
 
-the result by the scoverage :-
+*To test these Future calls I used the For expression.
 
-[info] Statement coverage.: 91.23%
-
-[info] Branch coverage....: 85.00%
-
-[info] Coverage reports completed
-
-[info] All done. Coverage was [91.23%]
  
 
 
