@@ -27,10 +27,14 @@ class UserDatabase extends Dao[User]{
       }
     }
     else false
+  }.recover{
+    case _:RuntimeException => false
   }
 
   override def listAllUser(): Future[List[User]] = Future{
     user_database.toList
+  }.recover{
+    case _:RuntimeException => List()
   }
 
   override def updateUser(oldUser : User, newUser : User): Future[Boolean] = Future{
@@ -42,6 +46,8 @@ class UserDatabase extends Dao[User]{
       true
     }
     else false
+  }.recover{
+    case _:RuntimeException => false
   }
 
   override def updateUserName(user: User, newName: String): Future[Boolean] = Future{
@@ -60,6 +66,8 @@ class UserDatabase extends Dao[User]{
     else {
       false
     }
+  }.recover{
+    case _:RuntimeException => false
   }
 
   override def updateUserCategory(user: User, newCategory: UserType.Value): Future[Boolean] = Future{
@@ -75,6 +83,8 @@ class UserDatabase extends Dao[User]{
       }
     }
     else false
+  }.recover{
+    case _:RuntimeException => false
   }
 
   override def deleteUser(user: User): Future[Boolean] = Future{
@@ -85,10 +95,14 @@ class UserDatabase extends Dao[User]{
       case Success(_) => true
       case Failure(_) =>false
     }
+  }.recover{
+    case _:RuntimeException => false
   }
 
   override def getUserById(id: UUID): Future[User] = Future{
     if(user_index.contains(id)) user_index(id)
     else null
+  }.recover{
+    case _:RuntimeException => null
   }
 }

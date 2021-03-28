@@ -1,10 +1,8 @@
-name := "OOPs_Testing_Assignment"
+name := "Future_Calls"
 
 version := "0.1"
 
 scalaVersion := "2.13.5"
-
-coverageExcludedPackages := ".*bootstrap.*"
 
 libraryDependencies ++= Seq (
   "org.scalatest" %% "scalatest" % "3.2.3" % Test,
