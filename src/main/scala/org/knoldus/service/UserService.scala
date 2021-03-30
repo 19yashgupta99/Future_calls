@@ -12,7 +12,7 @@ class UserService(userDatabase: Dao[User]){
     if(user.id != null && user.name.nonEmpty && UserType.values.contains(user.category)){
       userDatabase.createUser(user)
     }
-    else Future(false)
+    else Future.successful(false)
   }
 
   def getAllUser: Future[List[User]] ={
@@ -23,7 +23,7 @@ class UserService(userDatabase: Dao[User]){
     if(oldUser != newUser){
       userDatabase.updateUser(oldUser,newUser)
     }
-    else Future(false)
+    else Future.successful(false)
   }
 
   def updateUserName(user : User, newName : String):Future[Boolean] ={
@@ -31,7 +31,7 @@ class UserService(userDatabase: Dao[User]){
       userDatabase.updateUserName(user,newName)
     }
     else {
-      Future(false)
+      Future.successful(false)
     }
   }
 
@@ -39,7 +39,7 @@ class UserService(userDatabase: Dao[User]){
     if(user.category != newCategory && UserType.values.contains(newCategory)){
       userDatabase.updateUserCategory(user , newCategory)
     }
-    else Future(false)
+    else Future.successful(false)
   }
 
   def deleteUser(user : User) : Future[Boolean]={
